@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./src/config/db.js";
 import { notFound, errorHandler } from "./src/middleware/errMiddleware.js";
+import cors from "cors";
 
 // Routes
 import languageRoute from "./src/routes/languageRoute.js";
