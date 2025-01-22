@@ -14,6 +14,8 @@ connectDB();
 const PORT = 3006;
 const app = express();
 
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
