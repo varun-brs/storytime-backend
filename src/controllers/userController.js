@@ -82,7 +82,7 @@ const createUser = async (req, res, next) => {
       return next(error);
     }
   } catch (error) {
-    res.send(error);
+    res.next(error);
   }
 };
 
