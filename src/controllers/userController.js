@@ -75,9 +75,10 @@ const createUser = async (req, res, next) => {
 
       res
         .status(201)
-        .send(
-          "Registered Successfully. Please check your mail to verify the account"
-        );
+        .json({
+          message:
+            "Registered Successfully. Please check your mail to verify the account",
+        });
     } catch (error) {
       return next(error);
     }
