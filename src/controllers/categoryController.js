@@ -1,12 +1,20 @@
+import asyncHandler from "express-async-handler";
 import Category from "../models/categoryModel.js";
 
-const getCategory = async (req, res, next) => {
-  try {
-    const categories = await Category.find();
-    res.status(200).send(categories);
-  } catch (error) {
-    return next(error);
-  }
-};
+const getCategories = asyncHandler(async (req, res) => {
+  const categories = await Category.find();
 
-export { getCategory };
+  if (!categories.length) {
+    return res.status(404).json({
+      success: false,
+      message: "No categories found",
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    data: categories,
+  });
+});
+
+export { getCategories };
